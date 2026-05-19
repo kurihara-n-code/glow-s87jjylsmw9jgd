@@ -29,21 +29,34 @@
     vertical-align: top;
   }
 
-  /* 店舗一覧セクション: 予約ボタンをオーバーレイ */
+  /* 店舗一覧: 店舗ごとに行を作りボタンを右中央に配置 */
   .stores {
+    background: #fff;
+  }
+  .store-row {
     position: relative;
     line-height: 0;
   }
+  .store-row img.lp-section {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
   .reserve-btn {
     position: absolute;
-    right: 4.5%;
-    width: 38%;
+    top: 50%;
+    right: 3.5%;
+    width: 32%;
     transform: translateY(-50%);
+    line-height: 0;
     transition: transform 0.18s ease, filter 0.18s ease;
     filter: drop-shadow(0 3px 8px rgba(220, 80, 120, 0.28));
-    line-height: 0;
   }
-  .reserve-btn img { display: block; width: 100%; height: auto; }
+  .reserve-btn img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
   .reserve-btn:hover {
     transform: translateY(-50%) scale(1.05);
     filter: drop-shadow(0 5px 12px rgba(220, 80, 120, 0.42)) brightness(1.04);
@@ -51,14 +64,6 @@
   .reserve-btn:active {
     transform: translateY(-50%) scale(0.98);
   }
-
-  /* 各店舗の住所中心に合わせた縦位置（画像853×1844基準） */
-  .reserve-btn.ebisu      { top: 28.0%; }
-  .reserve-btn.ginza      { top: 40.5%; }
-  .reserve-btn.omotesando { top: 53.0%; }
-  .reserve-btn.shinjuku   { top: 63.7%; }
-  .reserve-btn.yokohama   { top: 75.7%; }
-  .reserve-btn.osaka      { top: 90.0%; }
 </style>
 </head>
 <body>
@@ -74,32 +79,59 @@
   <img class="lp-section" src="images/section8.webp" alt="プラン・料金" loading="lazy" width="853" height="1844">
 
   <div class="stores">
-    <img class="lp-section" src="images/section9.webp" alt="店舗一覧" loading="lazy" width="853" height="1844">
+    <!-- 店舗一覧ヘッダー -->
+    <img class="lp-section" src="images/section9_header.webp" alt="店舗一覧" loading="lazy" width="853" height="365">
 
     <!-- 恵比寿店 -->
-    <a class="reserve-btn ebisu" href="https://fashionista.skin/ebisu-east/" target="_blank" rel="noopener noreferrer" aria-label="恵比寿店 予約する">
-      <img src="images/reserve.webp" alt="予約する" width="1352" height="352">
-    </a>
+    <div class="store-row">
+      <img class="lp-section" src="images/section9_ebisu.webp" alt="恵比寿店" loading="lazy" width="853" height="225">
+      <a class="reserve-btn" href="https://fashionista.skin/ebisu-east/" target="_blank" rel="noopener noreferrer" aria-label="恵比寿店 予約する">
+        <img src="images/reserve.webp" alt="予約する" width="1352" height="352">
+      </a>
+    </div>
+
     <!-- 銀座店 -->
-    <a class="reserve-btn ginza" href="https://fashionista.skin/lp/" target="_blank" rel="noopener noreferrer" aria-label="銀座店 予約する">
-      <img src="images/reserve.webp" alt="予約する" width="1352" height="352">
-    </a>
+    <div class="store-row">
+      <img class="lp-section" src="images/section9_ginza.webp" alt="銀座店" loading="lazy" width="853" height="230">
+      <a class="reserve-btn" href="https://fashionista.skin/lp/" target="_blank" rel="noopener noreferrer" aria-label="銀座店 予約する">
+        <img src="images/reserve.webp" alt="予約する" width="1352" height="352">
+      </a>
+    </div>
+
     <!-- 表参道店 -->
-    <a class="reserve-btn omotesando" href="https://vy5iy8.b-merit.jp/a5ib9s/web/coupon/" target="_blank" rel="noopener noreferrer" aria-label="表参道店 予約する">
-      <img src="images/reserve.webp" alt="予約する" width="1352" height="352">
-    </a>
+    <div class="store-row">
+      <img class="lp-section" src="images/section9_omote.webp" alt="表参道店" loading="lazy" width="853" height="230">
+      <a class="reserve-btn" href="https://vy5iy8.b-merit.jp/a5ib9s/web/coupon/" target="_blank" rel="noopener noreferrer" aria-label="表参道店 予約する">
+        <img src="images/reserve.webp" alt="予約する" width="1352" height="352">
+      </a>
+    </div>
+
     <!-- 新宿店 -->
-    <a class="reserve-btn shinjuku" href="https://fashionista.skin/shibuya/" target="_blank" rel="noopener noreferrer" aria-label="新宿店 予約する">
-      <img src="images/reserve.webp" alt="予約する" width="1352" height="352">
-    </a>
+    <div class="store-row">
+      <img class="lp-section" src="images/section9_shinjuku.webp" alt="新宿店" loading="lazy" width="853" height="190">
+      <a class="reserve-btn" href="https://fashionista.skin/shibuya/" target="_blank" rel="noopener noreferrer" aria-label="新宿店 予約する">
+        <img src="images/reserve.webp" alt="予約する" width="1352" height="352">
+      </a>
+    </div>
+
     <!-- 横浜店 -->
-    <a class="reserve-btn yokohama" href="https://fashionista.skin/nakameguro/" target="_blank" rel="noopener noreferrer" aria-label="横浜店 予約する">
-      <img src="images/reserve.webp" alt="予約する" width="1352" height="352">
-    </a>
+    <div class="store-row">
+      <img class="lp-section" src="images/section9_yokohama.webp" alt="横浜店" loading="lazy" width="853" height="230">
+      <a class="reserve-btn" href="https://fashionista.skin/nakameguro/" target="_blank" rel="noopener noreferrer" aria-label="横浜店 予約する">
+        <img src="images/reserve.webp" alt="予約する" width="1352" height="352">
+      </a>
+    </div>
+
     <!-- 大阪店 -->
-    <a class="reserve-btn osaka" href="https://vy5iy8.b-merit.jp/a5ib9s/web/coupon/" target="_blank" rel="noopener noreferrer" aria-label="大阪店 予約する">
-      <img src="images/reserve.webp" alt="予約する" width="1352" height="352">
-    </a>
+    <div class="store-row">
+      <img class="lp-section" src="images/section9_osaka.webp" alt="大阪店" loading="lazy" width="853" height="165">
+      <a class="reserve-btn" href="https://vy5iy8.b-merit.jp/a5ib9s/web/coupon/" target="_blank" rel="noopener noreferrer" aria-label="大阪店 予約する">
+        <img src="images/reserve.webp" alt="予約する" width="1352" height="352">
+      </a>
+    </div>
+
+    <!-- 店舗一覧フッター -->
+    <img class="lp-section" src="images/section9_footer.webp" alt="全国に続々と展開予定" loading="lazy" width="853" height="209">
   </div>
 </main>
 
