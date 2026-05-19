@@ -44,14 +44,17 @@
   }
   .reserve-btn {
     position: absolute;
-    top: 50%;
-    right: 3.5%;
-    width: 32%;
+    top: 60%;
+    right: 6%;
+    width: 26%;
     transform: translateY(-50%);
     line-height: 0;
     transition: transform 0.18s ease, filter 0.18s ease;
     filter: drop-shadow(0 3px 8px rgba(220, 80, 120, 0.28));
   }
+  /* 新宿は画像が短い（ヘッダー比率が大きい）ため位置を調整 */
+  .store-row.shinjuku .reserve-btn { top: 56%; }
+  .store-row.osaka .reserve-btn { top: 58%; }
   .reserve-btn img {
     display: block;
     width: 100%;
@@ -107,7 +110,7 @@
     </div>
 
     <!-- 新宿店 -->
-    <div class="store-row">
+    <div class="store-row shinjuku">
       <img class="lp-section" src="images/section9_shinjuku.webp" alt="新宿店" loading="lazy" width="853" height="190">
       <a class="reserve-btn" href="https://fashionista.skin/shibuya/" target="_blank" rel="noopener noreferrer" aria-label="新宿店 予約する">
         <img src="images/reserve.webp" alt="予約する" width="1352" height="352">
@@ -123,7 +126,7 @@
     </div>
 
     <!-- 大阪店 -->
-    <div class="store-row">
+    <div class="store-row osaka">
       <img class="lp-section" src="images/section9_osaka.webp" alt="大阪店" loading="lazy" width="853" height="165">
       <a class="reserve-btn" href="https://vy5iy8.b-merit.jp/a5ib9s/web/coupon/" target="_blank" rel="noopener noreferrer" aria-label="大阪店 予約する">
         <img src="images/reserve.webp" alt="予約する" width="1352" height="352">
