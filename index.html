@@ -7,9 +7,15 @@
 <title>glow by Fashionista｜毛穴洗浄×小顔ケア専門サロン</title>
 <meta name="description" content="ノーファンデでも自信が持てる素肌へ。たった1回で変化を実感。glow by Fashionista 公式LP">
 <link rel="preload" as="image" href="images/section1.webp">
+<link rel="preload" as="image" href="images/button_cut.png">
 <style>
   *, *::before, *::after { box-sizing: border-box; }
-  html, body { margin: 0; padding: 0; }
+  html {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+  }
+  body { margin: 0; padding: 0; }
   body {
     font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
     background: #fdf8f5;
@@ -61,6 +67,28 @@
     width: 100%;
     height: auto;
   }
+  .floating-cta {
+    position: fixed;
+    left: 50%;
+    bottom: max(12px, env(safe-area-inset-bottom));
+    z-index: 100;
+    display: block;
+    width: min(92vw, 680px);
+    transform: translateX(-50%);
+    line-height: 0;
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+  }
+  .floating-cta.is-hidden {
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(-50%) translateY(16px);
+  }
+  .floating-cta img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
 </style>
 </head>
 <body>
@@ -75,7 +103,7 @@
   <img class="lp-section" src="images/section7.webp" alt="お客様の声" loading="lazy" width="853" height="1844">
   <img class="lp-section" src="images/section8.webp" alt="プラン・料金" loading="lazy" width="853" height="1844">
 
-  <div class="stores">
+  <div id="store-list" class="stores">
     <!-- 店舗一覧ヘッダー -->
     <img class="lp-section" src="images/section9_header.webp" alt="店舗一覧" loading="lazy" width="853" height="365">
 
@@ -131,6 +159,24 @@
     <img class="lp-section" src="images/section9_footer.webp" alt="全国に続々と展開予定" loading="lazy" width="853" height="209">
   </div>
 </main>
+
+<a class="floating-cta" href="#store-list" aria-label="店舗一覧へ移動して今すぐ予約する">
+  <img src="images/button_cut.png" alt="今すぐ予約する" width="1634" height="564">
+</a>
+
+<script>
+  const floatingCta = document.querySelector('.floating-cta');
+  const storeList = document.querySelector('#store-list');
+
+  if (floatingCta && storeList && 'IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      const isStoreListVisible = entries.some((entry) => entry.isIntersecting);
+      floatingCta.classList.toggle('is-hidden', isStoreListVisible);
+    }, { threshold: 0.01 });
+
+    observer.observe(storeList);
+  }
+</script>
 
 </body>
 </html>
